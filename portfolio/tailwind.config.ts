@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        funnel: 'var(--font-funnel-display), sans-serif',
+        roboto: 'var(--font-roboto), sans-serif',
+      },
     },
   },
   plugins: [],
