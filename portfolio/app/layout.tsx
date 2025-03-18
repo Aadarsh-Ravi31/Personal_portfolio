@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import {funnelDisplay,roboto} from './lib/fonts';
 
 export const metadata = {
   title: 'Aadarsh Ravi | Portfolio',
@@ -14,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-100">
+      <body className={`bg-gray-100 ${funnelDisplay.variable} ${roboto.variable}`}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
