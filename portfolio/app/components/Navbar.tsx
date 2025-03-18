@@ -1,10 +1,16 @@
-"use client"; // Ensure this runs on the client side in Next.js
+"use client"; // Ensures this runs on the client side in Next.js
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
   const [hovered, setHovered] = useState<number | null>(null);
+  const [hydrated, setHydrated] = useState(false); // ✅ Track if hydration is complete
+
+  // ✅ Force a re-render after hydration to fix first-load hover issues
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   const menuItems = [
     { name: "Expertise", href: "/about" },
@@ -13,6 +19,8 @@ export default function Navbar() {
     { name: "Resume", href: "/resume" },
     { name: "Contact", href: "/contact" },
   ];
+
+  if (!hydrated) return null; // ✅ Prevents mismatches during hydration
 
   return (
     <nav className="bg-[#15212C] shadow-md py-6 ml-0">
@@ -25,7 +33,7 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div
           className="flex space-x-10 mr-10"
-          onMouseLeave={() => setHovered(null)} // Reset state when leaving the menu area
+          onMouseLeave={() => setHovered(null)}
         >
           {menuItems.map((item, index) => (
             <Link
@@ -33,10 +41,10 @@ export default function Navbar() {
               href={item.href}
               className={`transition-colors duration-300 ease-in-out font-roboto ${
                 hovered === null
-                  ? "text-white" // Default state: All links are white
+                  ? "text-white"
                   : hovered === index
-                  ? "text-white" // Hovered link stays white
-                  : "text-gray-500" // Other links fade to gray
+                  ? "text-white"
+                  : "text-gray-500"
               }`}
               onMouseEnter={() => setHovered(index)}
             >
