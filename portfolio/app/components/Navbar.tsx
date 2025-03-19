@@ -16,7 +16,6 @@ export default function Navbar() {
     { name: "Expertise", href: "/about" },
     { name: "Projects", href: "/projects" },
     { name: "Experience", href: "/contact" },
-    { name: "Resume", href: "/resume" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -26,7 +25,7 @@ export default function Navbar() {
     <nav className="bg-[#15212C] shadow-md py-6 ml-0">
       <div className="w-full flex justify-between items-center">
         {/* Title */}
-        <h1 className="text-[24px] leading-[37px] font-bold font-funnel text-[#6ec1e4] ml-10">
+        <h1 className="text-[24px] leading-[37px] font-bold font-funnel text-[#6ec1e4] ml-10 hover:text-[#4998A9]">
           <Link href="/">Aadarsh Ravi</Link>
         </h1>
 

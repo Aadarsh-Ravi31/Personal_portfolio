@@ -15,6 +15,7 @@ export default {
       fontFamily: {
         funnel: 'var(--font-funnel-display), sans-serif',
         roboto: 'var(--font-roboto), sans-serif',
+        lexend: 'var(--font-lexend-deca), sans-serif',
       },
     },
   },
