@@ -16,7 +16,7 @@ export default function Hero() {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1 className="text-black text-7xl font-bold font-lexend">Hello,</h1>
-        <h1 className="text-black text-7xl font-bold font-lexend">I'm Aadarsh Ravi</h1>
+        <h1 className="text-black text-7xl font-bold font-lexend">I&apos;m Aadarsh Ravi</h1>
         <p className="text-black text-xl mt-4 mb-8 max-w-full font-lexend">
           A passionate software developer who loves turning ideas into clean, functional, and impactful solutions.
           Constantly learning and improving to write better, more efficient code.
