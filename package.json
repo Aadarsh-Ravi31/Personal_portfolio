@@ -5,6 +5,7 @@
     "tailwindcss": "^3.4.15"
   },
   "dependencies": {
-    "@next/font": "^14.2.15"
+    "@next/font": "^14.2.15",
+    "framer-motion": "^12.5.0"
   }
 }
