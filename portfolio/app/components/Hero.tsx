@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section
-      className="h-[calc(100vh-4rem)] bg-cover bg-center text-white flex items-center justify-center px-10"
+      className="h-screen pt-24 bg-cover bg-center text-white flex flex-col lg:flex-row items-center justify-center px-6 sm:px-10"
       style={{ backgroundImage: "url('/images/herobg2.jpg')" }}
     >
       {/* Left Text Section */}
@@ -35,19 +35,19 @@ export default function Hero() {
 
       {/* Right Image Section */}
       <motion.div
-        className="w-1/2 flex justify-center h-full"
+        className="w-full lg:w-1/2 flex justify-center h-auto mt-8 lg:mt-0"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         style={{ willChange: "opacity, transform" }} // Enables GPU acceleration
       >
         <Image
-          src="/images/profile.png"
+          src="/images/portfolio_profile2.jpg"
           alt="Hero Image"
           width={400} // Set explicit width
           height={500} // Set explicit height
           priority // Optimize loading for first render
-          className="h-[80vh] object-cover mt-12 ml-24"
+          className="h-[80vh] object-cover  ml-24 rounded-xl shadow-xl"
         />
       </motion.div>
     </section>

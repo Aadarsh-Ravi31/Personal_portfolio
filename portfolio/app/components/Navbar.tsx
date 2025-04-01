@@ -22,7 +22,7 @@ export default function Navbar() {
   if (!hydrated) return null; // ✅ Prevents mismatches during hydration
 
   return (
-    <nav className="bg-[#15212C] shadow-md py-6 ml-0">
+    <nav className="bg-[#15212C] shadow-md py-6 fixed top-0 w-full z-50">
       <div className="w-full flex justify-between items-center">
         {/* Title */}
         <h1 className="text-[24px] leading-[37px] font-bold font-funnel text-[#6ec1e4] ml-10 hover:text-[#4998A9]">
