@@ -6,20 +6,20 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section
-      className="h-[calc(100vh-4rem)] bg-cover bg-center text-white flex items-center justify-center px-10"
+      className="h-auto lg:h-screen pt-24 bg-cover bg-center text-white flex flex-col lg:flex-row items-center justify-center px-6 sm:px-10"
       style={{ backgroundImage: "url('/images/herobg2.jpg')" }}
     >
       {/* Left Text Section */}
       <motion.div
-        className="w-1/2 mb-20"
+        className="w-full lg:w-1/2 mb-10 lg:mb-20"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        style={{ willChange: "opacity, transform" }} // Enables GPU acceleration
+        style={{ willChange: "opacity, transform" }}
       >
-        <h1 className="text-black text-7xl font-bold font-lexend">Hello,</h1>
-        <h1 className="text-black text-7xl font-bold font-lexend">I&apos;m Aadarsh Ravi</h1>
-        <p className="text-black text-xl mt-4 mb-8 max-w-full font-lexend">
+        <h1 className="text-black text-5xl sm:text-6xl lg:text-7xl font-bold font-lexend">Hello,</h1>
+        <h1 className="text-black text-5xl sm:text-6xl lg:text-7xl font-bold font-lexend">I&apos;m Aadarsh Ravi</h1>
+        <p className="text-black text-lg sm:text-xl mt-4 mb-8 font-lexend">
           A passionate software developer who loves turning ideas into clean, functional, and impactful solutions.
           Constantly learning and improving to write better, more efficient code.
         </p>
@@ -35,19 +35,19 @@ export default function Hero() {
 
       {/* Right Image Section */}
       <motion.div
-        className="w-1/2 flex justify-center h-full"
+        className="w-full lg:w-1/2 flex justify-center h-auto mt-8 lg:mt-0 mb-12 lg:mb-0"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-        style={{ willChange: "opacity, transform" }} // Enables GPU acceleration
+        style={{ willChange: "opacity, transform" }}
       >
         <Image
-          src="/images/profile.png"
+          src="/images/portfolio_profile2.jpg"
           alt="Hero Image"
-          width={400} // Set explicit width
-          height={500} // Set explicit height
-          priority // Optimize loading for first render
-          className="h-[80vh] object-cover mt-12 ml-24"
+          width={400}
+          height={500}
+          priority
+          className="h-[60vh] sm:h-[70vh] lg:h-[80vh] object-cover rounded-xl shadow-xl lg:ml-24"
         />
       </motion.div>
     </section>
