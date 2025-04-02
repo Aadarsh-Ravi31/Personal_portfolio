@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github } from "lucide-react"; // You can replace/add more icons
+import { Mail, Linkedin, Github } from "lucide-react"; // Add more icons as needed
 
 const contactLinks = [
   {
@@ -31,14 +31,14 @@ export default function Contact() {
         className="max-w-4xl mx-auto text-center"
       >
         <h2 className="text-4xl font-bold font-lexend mb-10 text-gray-800">
-          Let's Connect
+          Let&apos;s Connect
         </h2>
         <p className="text-gray-600 mb-12 text-lg">
           Feel free to reach out through any of the platforms below.
         </p>
 
         <div className="flex justify-center gap-10 flex-wrap">
-          {contactLinks.map(({ icon: Icon, label, href }, idx) => (
+          {contactLinks.map(({ icon: Icon, label, href }) => (
             <motion.a
               key={label}
               href={href}
