@@ -42,7 +42,7 @@ export default function Hero() {
         style={{ willChange: "opacity, transform" }}
       >
         <Image
-          src="/images/portfolio_profile2.jpg"
+          src="/images/Portfolio_profile2.jpg"
           alt="Hero Image"
           width={400}
           height={500}
