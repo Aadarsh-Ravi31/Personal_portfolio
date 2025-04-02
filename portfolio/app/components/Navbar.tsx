@@ -14,9 +14,9 @@ export default function Navbar() {
 
   const menuItems = [
     { name: "Expertise", href: "#expertise" },
-    { name: "Projects", href: "/projects" },
-    { name: "Experience", href: "/contact" },
-    { name: "Contact", href: "/contact" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const handleSmoothScroll = (e: React.MouseEvent, href: string) => {
