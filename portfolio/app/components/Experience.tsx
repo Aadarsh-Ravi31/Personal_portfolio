@@ -35,6 +35,9 @@ const educationExperience = [
 export default function Experience() {
   const [activeTab, setActiveTab] = useState<"Work" | "Education">("Work");
 
+  const experienceItems =
+    activeTab === "Work" ? workExperience : educationExperience;
+
   return (
     <section id="experience" className="bg-white py-20 px-6 sm:px-10">
       <motion.div
@@ -88,8 +91,8 @@ export default function Experience() {
               hidden: {},
             }}
           >
-            {(activeTab === "Work" ? workExperience : educationExperience).map(
-              (item, index) => (
+            {experienceItems.map((item, index) => {
+              return (
                 <motion.div
                   key={index}
                   className="relative"
@@ -107,31 +110,35 @@ export default function Experience() {
                     {activeTab === "Work" ? (
                       <>
                         <h3 className="text-xl font-bold font-lexend text-[#15212C]">
-                          {item.role}
+                          {(item as typeof workExperience[0]).role}
                         </h3>
                         <p className="text-sm text-gray-500">
-                          {item.year} • {item.company}
+                          {(item as typeof workExperience[0]).year} •{" "}
+                          {(item as typeof workExperience[0]).company}
                         </p>
-                        <p className="text-gray-700 mt-2">{item.summary}</p>
+                        <p className="text-gray-700 mt-2">
+                          {(item as typeof workExperience[0]).summary}
+                        </p>
                       </>
                     ) : (
                       <>
                         <h3 className="text-xl font-bold font-lexend text-[#15212C]">
-                          {item.degree}
+                          {(item as typeof educationExperience[0]).degree}
                         </h3>
                         <p className="text-sm text-gray-500">
-                          {item.year} • {item.institution}
+                          {(item as typeof educationExperience[0]).year} •{" "}
+                          {(item as typeof educationExperience[0]).institution}
                         </p>
                         <p className="text-gray-700 mt-2">
                           <span className="font-semibold">Coursework:</span>{" "}
-                          {item.coursework}
+                          {(item as typeof educationExperience[0]).coursework}
                         </p>
                       </>
                     )}
                   </div>
                 </motion.div>
-              )
-            )}
+              );
+            })}
           </motion.div>
         </div>
       </motion.div>
