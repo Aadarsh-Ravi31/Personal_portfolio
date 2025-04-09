@@ -57,7 +57,7 @@ const educationExperience = [
     year: "2024 - 2026",
     institution: "Northeastern University, Boston, MA",
     coursework:
-      "Software Engineering, Distributed Systems, Cloud Computing, Data Management, Web Development",
+      "Web Design/ User Experience Engineering, Data Science Engineering Methods & Tools, Program Structures & Algorithms, Application Engineering & Development",
     logo: "/images/neu2.png",
   },
   {
@@ -65,7 +65,7 @@ const educationExperience = [
     year: "2017 - 2021",
     institution: "Vellore Institute of Technology, Chennai, India",
     coursework:
-      "Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks, Web Technologies",
+      "Operating Systems, Database Management Systems, Software Engineering, Problem Solving & OOP, Machine Learning, Computer Architecture and Organization,Artificial Intelligence, Discrete Mathematics and Graph Theory, Parallel and Distributed Computing",
     logo: "/icons/vit.svg",
   },
 ];
