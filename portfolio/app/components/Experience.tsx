@@ -58,7 +58,7 @@ const educationExperience = [
     institution: "Northeastern University, Boston, MA",
     coursework:
       "Web Design/ User Experience Engineering, Data Science Engineering Methods & Tools, Program Structures & Algorithms, Application Engineering & Development",
-    logo: "/images/neu2.png",
+    logo: "/images/neu.png",
   },
   {
     degree: "B.Tech in Computer Science Engineering",
