@@ -4,29 +4,73 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const categories = {
+    Languages: [
+        { src: "/icons/cpp.svg", label: "C++" },
+        { src: "/icons/java.svg", label: "Java" },
+        { src: "/icons/python.svg", label: "Python" },
+        { src: "/icons/c.svg", label: "C" },
+        { src: "/icons/csharp.svg", label: "C#" },
+        { src: "/icons/javascript.svg", label: "Javascript" },     
+    ],
     Frontend: [
+        { src: "/icons/angular.svg", label: "Angular" },
         { src: "/icons/react.svg", label: "React" },
+        { src: "/icons/html.svg", label: "HTML" },
+        { src: "/icons/css.svg", label: "CSS" },
         { src: "/icons/nextjs.svg", label: "Next.js" },
+        { src: "/icons/typescript.svg", label: "Typescript" },    
+        { src: "/icons/bootstrap.svg", label: "Bootstrap" },
         { src: "/icons/tailwind.svg", label: "Tailwind" },
+        { src: "/icons/sass.svg", label: "Sass" },
+
     ],
     Backend: [
-        { src: "/icons/nodejs.svg", label: "Node.js" },
-        { src: "/icons/express.svg", label: "Express" },
-        { src: "/icons/mongodb.svg", label: "MongoDB" },
+        { src: "/icons/dotnet.svg", label: "Dotnet Core" },
+        { src: "/icons/node.svg", label: "Node.js" },
+        { src: "/icons/spring.svg", label: "Spring Boot" },
+        { src: "/icons/django.svg", label: "Django" },
+        { src: "/icons/flask.svg", label: "Flask" },
+       
     ],
-    Cloud: [
+    Database: [
+        { src: "/icons/postgres.svg", label: "PostgreSQL" },
+        { src: "/icons/mysql.svg", label: "MySQL" },
+        { src: "/icons/mongo.svg", label: "MongoDB" },
+        { src: "/icons/redis.svg", label: "Redis" },
+    ],
+    "Cloud & Devops": [
         { src: "/icons/aws.svg", label: "AWS" },
-        { src: "/icons/vercel.svg", label: "Vercel" },
+        { src: "/icons/docker.svg", label: "Docker" },
+        { src: "/icons/kubernetes.svg", label: "Kubernetes" },
+        { src: "/icons/jenkins.svg", label: "Jenkins" },
+        { src: "/icons/teamcity.svg", label: "Teamcity" },
+
     ],
-    "Source Control": [
-        { src: "/icons/git.svg", label: "Git" },
-        { src: "/icons/github.svg", label: "GitHub" },
+    "Testing": [
+        { src: "/icons/nunit.svg", label: "NUnit" },
+        { src: "/icons/junit.svg", label: "JUnit" },
+        { src: "/icons/jasmine.svg", label: "Jasmine" },
+        { src: "/icons/karma.svg", label: "Karma" },
+
+    ],
+    "Tools & Platforms": [
+        { src: "/icons/jira.svg", label: "Jira" },
+        { src: "/icons/confluence.svg", label: "Confluence" },
+        { src: "/icons/bitbucket.svg", label: "Bitbucket" },
+        { src: "/icons/github.svg", label: "Github" },
+        { src: "/icons/visualstudio.svg", label: "Visual Studio" },
+        { src: "/icons/vscode.svg", label: "VS Code" },
+        { src: "/icons/intellij.svg", label: "Intellij IDEA" },
+        { src: "/icons/postman.svg", label: "Postman" },
+        { src: "/icons/figma.svg", label: "Figma" },
+        { src: "/icons/jupyter.svg", label: "Jupyter Notebook" },
+
     ],
 };
 
 
 export default function Expertise() {
-    const [activeTab, setActiveTab] = useState<keyof typeof categories>("Frontend");
+    const [activeTab, setActiveTab] = useState<keyof typeof categories>("Languages");
 
     return (
         <section id="expertise" className="bg-[#FEFAF6] py-20 px-6 sm:px-10">
