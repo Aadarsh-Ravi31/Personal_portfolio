@@ -58,6 +58,7 @@ const educationExperience = [
     institution: "Northeastern University, Boston, MA",
     coursework:
       "Software Engineering, Distributed Systems, Cloud Computing, Data Management, Web Development",
+    logo: "/images/neu2.png",
   },
   {
     degree: "B.Tech in Computer Science Engineering",
@@ -65,6 +66,7 @@ const educationExperience = [
     institution: "Vellore Institute of Technology, Chennai, India",
     coursework:
       "Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks, Web Technologies",
+    logo: "/icons/vit.svg",
   },
 ];
 
@@ -169,67 +171,70 @@ export default function Experience() {
                 >
                   <div
                     className={`transition-all duration-300 bg-gray-100 p-6 pl-8 rounded-xl shadow-md hover:bg-gray-200 
-                    flex flex-col gap-3 ${!isMobile ? "group" : "cursor-pointer"}`}
+                      flex justify-between gap-4 flex-wrap ${!isMobile ? "group" : "cursor-pointer"}`}
                     onClick={() => toggleExpand(index)}
                   >
-                    {/* Role + Logo + Year Row */}
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-xl font-bold font-lexend text-[#15212C]">
-                          {activeTab === "Work"
-                            ? (item as typeof workExperience[0]).role
-                            : (item as typeof educationExperience[0]).degree}
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                          {activeTab === "Work"
-                            ? (item as typeof workExperience[0]).year
-                            : (item as typeof educationExperience[0]).year}{" "}
-                          •{" "}
-                          {activeTab === "Work"
-                            ? (item as typeof workExperience[0]).company
-                            : (item as typeof educationExperience[0])
-                                .institution}
-                        </p>
-                      </div>
+                    {/* Left: Text Block */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl font-bold font-lexend text-[#15212C]">
+                        {activeTab === "Work"
+                          ? (item as typeof workExperience[0]).role
+                          : (item as typeof educationExperience[0]).degree}
+                      </h3>
+                      <p className="text-sm text-gray-500 mt-0.5">
+                        {activeTab === "Work"
+                          ? (item as typeof workExperience[0]).year
+                          : (item as typeof educationExperience[0]).year}{" "}
+                        •{" "}
+                        {activeTab === "Work"
+                          ? (item as typeof workExperience[0]).company
+                          : (item as typeof educationExperience[0])
+                              .institution}
+                      </p>
 
-                      {/* Logo */}
-                      {activeTab === "Work" && (
-                        <div className="w-12 h-12 flex-shrink-0 mt-1">
-                          <Image
-                            src={(item as typeof workExperience[0]).logo}
-                            alt={`Logo of ${
-                              (item as typeof workExperience[0]).company
+                      {/* Summary (Work) or Coursework (always visible) */}
+                      {activeTab === "Work" ? (
+                        <ul
+                          className={`mt-1.5 pl-5 list-disc list-outside text-gray-700 transition-all duration-500 ease-in-out overflow-hidden
+                            ${
+                              isMobile
+                                ? expandedIndex === index
+                                  ? "max-h-96 opacity-100"
+                                  : "max-h-0 opacity-0"
+                                : "max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100"
                             }`}
-                            width={48}
-                            height={48}
-                            className="object-contain"
-                          />
-                        </div>
+                        >
+                          {(item as typeof workExperience[0]).summary.map(
+                            (point, idx) => <li key={idx}>{point}</li>
+                          )}
+                        </ul>
+                      ) : (
+                        <p className="text-gray-700 mt-2">
+                          <span className="font-semibold">Coursework:</span>{" "}
+                          {(item as typeof educationExperience[0]).coursework}
+                        </p>
                       )}
                     </div>
 
-                    {/* Summary or Coursework */}
-                    {activeTab === "Work" ? (
-                      <ul
-                        className={`mt-2 pl-5 list-disc list-outside text-gray-700 transition-all duration-500 ease-in-out overflow-hidden
-                          ${
-                            isMobile
-                              ? expandedIndex === index
-                                ? "max-h-96 opacity-100"
-                                : "max-h-0 opacity-0"
-                              : "max-h-0 opacity-0 group-hover:max-h-96 group-hover:opacity-100"
-                          }`}
-                      >
-                        {(item as typeof workExperience[0]).summary.map(
-                          (point, idx) => <li key={idx}>{point}</li>
-                        )}
-                      </ul>
-                    ) : (
-                      <p className="text-gray-700 mt-2">
-                        <span className="font-semibold">Coursework:</span>{" "}
-                        {(item as typeof educationExperience[0]).coursework}
-                      </p>
-                    )}
+                    {/* Right: Logo */}
+                    <div className="w-20 h-20 flex-shrink-0 mt-1">
+                      <Image
+                        src={
+                          activeTab === "Work"
+                            ? (item as typeof workExperience[0]).logo
+                            : (item as typeof educationExperience[0]).logo
+                        }
+                        alt={`Logo of ${
+                          activeTab === "Work"
+                            ? (item as typeof workExperience[0]).company
+                            : (item as typeof educationExperience[0])
+                                .institution
+                        }`}
+                        width={80}
+                        height={80}
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
                 </motion.div>
               );
