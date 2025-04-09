@@ -1,30 +1,25 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const sampleProjects = [
     {
         title: "CampusNavBot: Smart Chatbot for University Building Directions",
-        image: "/images/campusnav.png",
         description: "Developed a chatbot leveraging NLP (Dialogflow/OpenAI API) to process location-based queries & guide users to university buildings. Integrated Google Maps API to visualize directions, using Node.js backend with a MongoDB to fetch building metadata. Deployed using React.js frontend on Vercel & Express API on Render, with GitHub for version control & CI/CD automation.",
         slug: "project-one",
     },
     {
         title: "Quantitative Trading Analysis on Costco Stock",
-        image: "/images/project2.jpg",
         description: "Engineered features from Costco stock data using technical indicators and candlestick pattern recognition. Developed and fine-tuned predictive models with XGBoost and Random Forest, boosting accuracy. Conducted regression analysis and visualized performance metrics using Python, Pandas, and Plotly to extract actionable market insights and trading signals.",
         slug: "project-two",
     },
     {
         title: "OpenBid: Secure Auction Web App",
-        image: "/images/project3.jpg",
         description: "Developed a full-stack online auction platform using React, Node.js, Express, and MongoDB with JWT-based authentication and role-based access for buyers and sellers. Implemented real-time live bidding, PWA features, internationalization, and Fugu capabilities. Applied Redux for state management, RESTful APIs with Domain-Driven Design, and designed a responsive UI.",
         slug: "project-three",
     },
     {
         title: "HealthHub 360: Online Medical Management System",
-        image: "/images/project4.jpg",
         description: "Developed a Java Swing-based healthcare application, incorporating Google Maps API for location services, an interactive chatbot for seamless user support, automated email notifications, and advanced password encryption. Delivered a secure, user-centric platform showcasing hospital services with robust Role-Based Authentication to enhance access control & operational efficiency.",
         slug: "project-four",
     }
