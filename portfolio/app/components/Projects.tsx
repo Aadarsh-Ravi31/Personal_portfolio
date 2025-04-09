@@ -5,41 +5,29 @@ import { motion } from "framer-motion";
 
 const sampleProjects = [
     {
-        title: "Project One",
-        image: "/images/project1.jpg",
-        description: "This is a short description of Project One.",
+        title: "CampusNavBot: Smart Chatbot for University Building Directions",
+        image: "/images/campusnav.png",
+        description: "Developed a chatbot leveraging NLP (Dialogflow/OpenAI API) to process location-based queries & guide users to university buildings. Integrated Google Maps API to visualize directions, using Node.js backend with a MongoDB to fetch building metadata. Deployed using React.js frontend on Vercel & Express API on Render, with GitHub for version control & CI/CD automation.",
         slug: "project-one",
     },
     {
-        title: "Project Two",
+        title: "Quantitative Trading Analysis on Costco Stock",
         image: "/images/project2.jpg",
-        description: "This is a short description of Project Two.",
+        description: "Engineered features from Costco stock data using technical indicators and candlestick pattern recognition. Developed and fine-tuned predictive models with XGBoost and Random Forest, boosting accuracy. Conducted regression analysis and visualized performance metrics using Python, Pandas, and Plotly to extract actionable market insights and trading signals.",
         slug: "project-two",
     },
     {
-        title: "Project Three",
+        title: "OpenBid: Secure Auction Web App",
         image: "/images/project3.jpg",
-        description: "This is a short description of Project Three.",
+        description: "Developed a full-stack online auction platform using React, Node.js, Express, and MongoDB with JWT-based authentication and role-based access for buyers and sellers. Implemented real-time live bidding, PWA features, internationalization, and Fugu capabilities. Applied Redux for state management, RESTful APIs with Domain-Driven Design, and designed a responsive UI.",
         slug: "project-three",
     },
     {
-        title: "Project Four",
+        title: "HealthHub 360: Online Medical Management System",
         image: "/images/project4.jpg",
-        description: "This is a short description of Project Four.",
+        description: "Developed a Java Swing-based healthcare application, incorporating Google Maps API for location services, an interactive chatbot for seamless user support, automated email notifications, and advanced password encryption. Delivered a secure, user-centric platform showcasing hospital services with robust Role-Based Authentication to enhance access control & operational efficiency.",
         slug: "project-four",
-    },
-    {
-        title: "Project Five",
-        image: "/images/project5.jpg",
-        description: "This is a short description of Project Five.",
-        slug: "project-five",
-    },
-    {
-        title: "Project Six",
-        image: "/images/project6.jpg",
-        description: "This is a short description of Project Six.",
-        slug: "project-six",
-    },
+    }
 ];
 
 export default function Projects() {
@@ -63,17 +51,12 @@ export default function Projects() {
                     {sampleProjects.map((project, index) => (
                         <Link key={index} href={`/projects/${project.slug}`}>
                             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    width={600}
-                                    height={400}
-                                    className="w-full h-48 object-cover"
-                                />
+                                
                                 <div className="p-4">
                                     <h3 className="text-xl font-semibold font-lexend text-[#15212C]">
                                         {project.title}
                                     </h3>
+                                    
                                     <p className="text-sm text-gray-600 mt-2">
                                         {project.description}
                                     </p>
