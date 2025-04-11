@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 const sampleProjects = [
     {
         title: "CampusNavBot: Smart Chatbot for University Building Directions",
-        description: "Developed a chatbot leveraging NLP (Dialogflow/OpenAI API) to process location-based queries & guide users to university buildings. Integrated Google Maps API to visualize directions, using Node.js backend with a MongoDB to fetch building metadata. Deployed using React.js frontend on Vercel & Express API on Render, with GitHub for version control & CI/CD automation.",
+        image: "/images/project1.png",
         slug: "project-one",
     },
     {
         title: "Quantitative Trading Analysis on Costco Stock",
-        description: "Engineered features from Costco stock data using technical indicators and candlestick pattern recognition. Developed and fine-tuned predictive models with XGBoost and Random Forest, boosting accuracy. Conducted regression analysis and visualized performance metrics using Python, Pandas, and Plotly to extract actionable market insights and trading signals.",
+        image: "/images/project2.png",
         slug: "project-two",
     },
     {
         title: "OpenBid: Secure Auction Web App",
-        description: "Developed a full-stack online auction platform using React, Node.js, Express, and MongoDB with JWT-based authentication and role-based access for buyers and sellers. Implemented real-time live bidding, PWA features, internationalization, and Fugu capabilities. Applied Redux for state management, RESTful APIs with Domain-Driven Design, and designed a responsive UI.",
+        image: "/images/project3.png",
         slug: "project-three",
     },
     {
         title: "HealthHub 360: Online Medical Management System",
-        description: "Developed a Java Swing-based healthcare application, incorporating Google Maps API for location services, an interactive chatbot for seamless user support, automated email notifications, and advanced password encryption. Delivered a secure, user-centric platform showcasing hospital services with robust Role-Based Authentication to enhance access control & operational efficiency.",
+        image: "/images/project4.png",
         slug: "project-four",
-    }
+    },
 ];
 
 export default function Projects() {
@@ -38,23 +38,27 @@ export default function Projects() {
                 <h2 className="text-4xl font-bold text-center font-lexend mb-12 text-gray-800">
                     Projects
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 
-  max-h-[80vh] overflow-y-auto pr-2
-  sm:max-h-full sm:overflow-visible
-">
-
+                <div
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 
+        max-h-[80vh] overflow-y-auto pr-2
+        sm:max-h-full sm:overflow-visible"
+                >
                     {sampleProjects.map((project, index) => (
                         <Link key={index} href={`/projects/${project.slug}`}>
                             <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer">
-                                
+                                {/* Image with zoom on hover */}
+                                <div className="overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-56 object-cover object-[center_70%] transition-transform duration-300 hover:scale-105"
+                                    />
+
+                                </div>
                                 <div className="p-4">
-                                    <h3 className="text-xl font-semibold font-lexend text-[#15212C]">
+                                    <h3 className="text-lg font-semibold font-lexend text-[#15212C] text-center">
                                         {project.title}
                                     </h3>
-                                    
-                                    <p className="text-sm text-gray-600 mt-2">
-                                        {project.description}
-                                    </p>
                                 </div>
                             </div>
                         </Link>
