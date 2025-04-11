@@ -6,17 +6,17 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:aadarshravi@example.com",
+    href: "mailto:ravi.aad@northeastern.edu",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/aadarshravi",
+    href: "https://www.linkedin.com/in/aadarsh-ravi/",
   },
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com/aadarshravi",
+    href: "https://github.com/Aadarsh-Ravi31",
   },
 ];
 
