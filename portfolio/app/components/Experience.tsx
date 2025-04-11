@@ -217,7 +217,14 @@ export default function Experience() {
                     </div>
 
                     {/* Right: Logo */}
-                    <div className="w-20 h-20 flex-shrink-0 mt-1">
+                    <div
+  className={`${
+    isMobile
+      ? "w-full flex justify-center order-first mb-3"
+      : "w-20 h-20 flex-shrink-0 mt-1"
+  }`}
+>
+
                       <Image
                         src={
                           activeTab === "Work"
