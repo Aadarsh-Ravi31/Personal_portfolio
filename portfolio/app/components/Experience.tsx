@@ -6,7 +6,7 @@ import Image from "next/image";
 const workExperience = [
   {
     role: "Senior Software Engineer",
-    year: "Mar 2022 - Jun 2024",
+    year: "Jan 2023 - Apr 2024",
     company: "ZS Associates",
     logo: "/icons/zs.svg",
     summary: [
@@ -18,7 +18,7 @@ const workExperience = [
   },
   {
     role: "Software Development Engineer II",
-    year: "Jul 2021 - Feb 2022",
+    year: "Jul 2021 - Jan 2023",
     company: "ZS Associates",
     logo: "/icons/zs.svg",
     summary: [
@@ -40,7 +40,7 @@ const workExperience = [
   },
   {
     role: "Full Stack Engineer Intern",
-    year: "Mar 2022 - Jun 2024",
+    year: "Mar 2019 - Jun 2019",
     company: "Blackboard Inc.",
     logo: "/images/blackboard.jpeg",
     summary: [
