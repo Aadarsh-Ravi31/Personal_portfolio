@@ -25,7 +25,7 @@ export default function Hero() {
           Constantly learning and improving to write better, more efficient code.
         </p>
         <Link
-          href="https://drive.google.com/file/d/1UFbEZZMqkicLtjlOb-bCLTxUXfNF0ZEV/view?usp=sharing"
+          href="https://drive.google.com/file/d/1Yrw_fTMP2obVC8GmwQFXeiyT4EC5_oXR/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3 bg-[#15212C] text-[#6ec1e4] font-semibold rounded-full shadow-md hover:text-[#4998A9] transition duration-300 ease-in-out text-base font-lexend"
