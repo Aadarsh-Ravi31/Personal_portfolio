@@ -9,10 +9,10 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const menuItems = [
-    { name: "Expertise", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Experience", href: "/contact" },
-    { name: "Contact", href: "/contact" },
+    { name: "Expertise", href: "#expertise" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-6 md:px-10">
         {/* Title */}
         <h1 className="text-[24px] font-bold font-funnel text-[#6ec1e4] hover:text-[#4998A9]">
-          <Link href="/">Aadarsh Ravi</Link>
+          <Link href="#hero">Aadarsh Ravi</Link>
         </h1>
 
         {/* Desktop Nav */}
