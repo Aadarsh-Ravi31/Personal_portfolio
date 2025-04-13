@@ -1,20 +1,48 @@
 "use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
+  const [hasMounted, setHasMounted] = useState(false);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+
+    const handleLoad = () => setReady(true);
+    if (document.readyState === "complete") {
+      setReady(true);
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
+  }, []);
+
+  if (!hasMounted) return null;
+
   return (
     <section
       id="hero"
-      className="h-auto lg:h-screen pt-24 bg-cover bg-center text-white flex flex-col lg:flex-row items-center justify-center px-6 sm:px-10"
-      style={{ backgroundImage: "url('/images/herobg2.jpg')" }}
+      className="relative h-auto lg:h-screen pt-24 text-white flex flex-col lg:flex-row items-center justify-center px-6 sm:px-10 overflow-hidden"
     >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/herobg2.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
       {/* Left Text Section */}
       <motion.div
-        className="w-full lg:w-1/2 mb-10 lg:mb-20"
+        className="relative z-10 w-full lg:w-1/2 mb-10 lg:mb-20"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={ready ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
         style={{ willChange: "opacity, transform" }}
       >
@@ -36,9 +64,9 @@ export default function Hero() {
 
       {/* Right Image Section */}
       <motion.div
-        className="w-full lg:w-1/2 flex justify-center h-auto mt-8 lg:mt-0 mb-12 lg:mb-0"
+        className="relative z-10 w-full lg:w-1/2 flex justify-center h-auto mt-8 lg:mt-0 mb-12 lg:mb-0"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={ready ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
         style={{ willChange: "opacity, transform" }}
       >
