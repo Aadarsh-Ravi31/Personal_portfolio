@@ -1,11 +1,12 @@
 import "./globals.css";
-import { funnelDisplay, roboto, lexend } from "./lib/fonts";
+import { geistSans, geistMono, playfair } from "./lib/fonts";
 import ClientLayout from "./components/clientLayout";
 import { ThemeProvider } from "./context/ThemeContext";
 
 export const metadata = {
-  title: "Aadarsh Ravi | Portfolio",
-  description: "Showcasing my projects and skills as a software developer.",
+  title: "Aadarsh Ravi | Software Engineer",
+  description:
+    "Aadarsh Ravi — Software Engineer building AI & data-driven products. Portfolio of software, AI/ML, and data engineering work.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -17,10 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
               (function() {
                 var stored = localStorage.getItem('portfolio-theme');
-                if (stored === 'light') {
-                  document.documentElement.classList.remove('dark');
-                } else {
+                if (stored === 'dark') {
                   document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
                 }
               })();
             `,
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body
-        className={`bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 ${funnelDisplay.variable} ${roboto.variable} ${lexend.variable}`}
+        className={`bg-background text-foreground transition-colors duration-300 ${geistSans.variable} ${geistMono.variable} ${playfair.variable} font-sans`}
       >
         <ThemeProvider>
           <ClientLayout>{children}</ClientLayout>

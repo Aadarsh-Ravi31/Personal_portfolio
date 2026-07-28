@@ -99,7 +99,7 @@ export default function Experience() {
     activeTab === "Work" ? workExperience : educationExperience;
 
   return (
-    <section id="experience" className="bg-white dark:bg-gray-900/50 py-16 sm:py-20 px-4 sm:px-6 md:px-10">
+    <section id="experience" className="bg-background py-20 sm:py-28 px-4 sm:px-6 md:px-10">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -107,12 +107,15 @@ export default function Experience() {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-center font-lexend mb-8 sm:mb-10 text-gray-800 dark:text-gray-100">
+        <p className="font-mono text-xs uppercase tracking-widest text-muted mb-4">
+          (03) &nbsp; Experience
+        </p>
+        <h2 className="text-display-sm font-display font-bold tracking-tight mb-10 sm:mb-12">
           Experience
         </h2>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 flex-wrap">
+        <div className="flex justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 flex-wrap">
           {["Work", "Education"].map((tab) => (
             <button
               key={tab}
@@ -122,8 +125,8 @@ export default function Experience() {
               }}
               className={`px-5 sm:px-6 py-2 rounded-full font-medium transition-all text-sm sm:text-base ${
                 activeTab === tab
-                  ? "bg-[#15212C] dark:bg-gray-800 text-[#6ec1e4]"
-                  : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
+                  ? "bg-foreground text-background border border-foreground"
+                  : "border border-border text-muted hover:text-foreground hover:border-foreground/40"
               }`}
             >
               {tab}
@@ -134,7 +137,7 @@ export default function Experience() {
         {/* Timeline Container */}
         <div className="relative px-4 sm:px-6 md:px-10">
           <motion.div
-            className="absolute left-0 top-0 w-1 bg-gray-300 dark:bg-gray-600 rounded-full origin-top"
+            className="absolute left-0 top-0 w-1 bg-border rounded-full origin-top"
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -170,18 +173,18 @@ export default function Experience() {
                   animate={animateCard.animate}
                 >
                   <div
-                    className={`transition-all duration-300 bg-gray-100 dark:bg-gray-800/50 p-4 sm:p-6 pl-6 sm:pl-8 rounded-xl shadow-md hover:bg-gray-200 dark:hover:bg-gray-800 
-                      flex justify-between gap-4 flex-wrap border border-transparent dark:border-gray-700/50 ${!isMobile ? "group" : "cursor-pointer"}`}
+                    className={`transition-colors duration-300 bg-foreground/5 p-4 sm:p-6 pl-6 sm:pl-8 rounded-xl hover:bg-foreground/10
+                      flex justify-between gap-4 flex-wrap border border-border ${!isMobile ? "group" : "cursor-pointer"}`}
                     onClick={() => toggleExpand(index)}
                   >
                     {/* Left: Text Block */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg sm:text-xl font-bold font-lexend text-[#15212C] dark:text-gray-100">
+                      <h3 className="text-lg sm:text-xl font-display font-bold">
                         {activeTab === "Work"
                           ? (item as typeof workExperience[0]).role
                           : (item as typeof educationExperience[0]).degree}
                       </h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                      <p className="text-sm text-muted mt-0.5">
                         {activeTab === "Work"
                           ? (item as typeof workExperience[0]).year
                           : (item as typeof educationExperience[0]).year}{" "}
@@ -195,7 +198,7 @@ export default function Experience() {
                       {/* Summary (Work) or Coursework (always visible) */}
                       {activeTab === "Work" ? (
                         <ul
-                          className={`mt-1.5 pl-5 list-disc list-outside text-gray-700 dark:text-gray-300 transition-all duration-500 ease-in-out overflow-hidden
+                          className={`mt-1.5 pl-5 list-disc list-outside text-muted transition-all duration-500 ease-in-out overflow-hidden
                             ${
                               isMobile
                                 ? expandedIndex === index
@@ -209,7 +212,7 @@ export default function Experience() {
                           )}
                         </ul>
                       ) : (
-                        <p className="text-gray-700 dark:text-gray-300 mt-2">
+                        <p className="text-muted mt-2">
                           <span className="font-semibold">Coursework:</span>{" "}
                           {(item as typeof educationExperience[0]).coursework}
                         </p>

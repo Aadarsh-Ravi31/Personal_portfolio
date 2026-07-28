@@ -1,80 +1,100 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Reveal, TextReveal } from "./motion";
 
-export default function Hero() {
-  const [hasMounted, setHasMounted] = useState(false);
-  const [ready, setReady] = useState(false);
+const WORDS = ["Software", "AI", "Data"];
+const INTERVAL = 2200;
+
+function CyclingWord() {
+  const [index, setIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    setHasMounted(true);
-
-    const handleLoad = () => setReady(true);
-    if (document.readyState === "complete") {
-      setReady(true);
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
-    }
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % WORDS.length),
+      INTERVAL
+    );
+    return () => clearInterval(id);
   }, []);
 
-  if (!hasMounted) return null;
+  return (
+    <span className="block overflow-hidden">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={WORDS[index]}
+          className="block"
+          initial={reduceMotion ? { opacity: 0 } : { y: "100%" }}
+          animate={reduceMotion ? { opacity: 1 } : { y: 0 }}
+          exit={reduceMotion ? { opacity: 0 } : { y: "-100%" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {WORDS[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
+export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen pt-24 pb-16 lg:pb-0 text-white flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 md:px-10 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center pt-32 pb-16 px-4 sm:px-6 md:px-10"
     >
-      {/* Background - gradient + floating orbs */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-200 via-gray-100 to-slate-200 dark:from-gray-950 dark:via-[#15212C] dark:to-gray-950">
-        <div className="hero-orbs" aria-hidden="true">
-          <div className="hero-orb hero-orb-1" />
-          <div className="hero-orb hero-orb-2" />
-          <div className="hero-orb hero-orb-3" />
-        </div>
+      {/* Giant centered headline with a cycling first word */}
+      <h1 className="text-center font-display font-bold uppercase tracking-tight leading-[0.85] text-[clamp(2.5rem,11vw,9rem)]">
+        <CyclingWord />
+        <TextReveal as="span" text="Engineer" className="block" delay={0.1} />
+      </h1>
+
+      {/* Two-column band: portrait left, write-up + pills right */}
+      <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center max-w-4xl mx-auto w-full">
+        {/* Portrait */}
+        <Reveal y={20} delay={0.2} className="flex justify-center md:justify-end">
+          <div className="relative w-56 sm:w-64 aspect-[4/5] rounded-[2rem] overflow-hidden border border-border shadow-lg">
+            <Image
+              src="/images/portfolio-picture.jpeg"
+              alt="Aadarsh Ravi"
+              fill
+              priority
+              sizes="(max-width: 640px) 224px, 256px"
+              className="object-cover object-top"
+            />
+          </div>
+        </Reveal>
+
+        {/* Write-up */}
+        <Reveal delay={0.3} className="text-center md:text-left font-serif">
+          <h2 className="italic text-3xl sm:text-4xl">
+            Hey, I&apos;m Aadarsh Ravi
+          </h2>
+          <p className="mt-4 text-muted text-lg sm:text-xl max-w-md mx-auto md:mx-0">
+            I love turning ideas into real products — building AI &amp;
+            data-driven applications across the full stack, from first prototype
+            to production.
+          </p>
+
+          <div className="mt-8 flex gap-3 justify-center md:justify-start font-sans">
+            <Link
+              href="https://drive.google.com/file/d/1Yrw_fTMP2obVC8GmwQFXeiyT4EC5_oXR/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-3 rounded-full border border-foreground bg-foreground text-background font-medium hover:bg-transparent hover:text-foreground transition-colors"
+            >
+              Resume
+            </Link>
+            <Link
+              href="/#projects"
+              className="px-7 py-3 rounded-full border border-border text-foreground font-medium hover:border-foreground transition-colors"
+            >
+              View Work
+            </Link>
+          </div>
+        </Reveal>
       </div>
-
-      {/* Left Text Section */}
-      <motion.div
-        className="relative z-10 w-full lg:w-1/2 mb-6 sm:mb-10 lg:mb-20"
-        initial={{ opacity: 0, y: 100 }}
-        animate={ready ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <h1 className="text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-lexend leading-tight">Hello,</h1>
-        <h1 className="text-gray-900 dark:text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-lexend leading-tight">I&apos;m Aadarsh Ravi</h1>
-        <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl mt-4 mb-6 sm:mb-8 font-lexend max-w-xl">
-          A passionate software developer who loves turning ideas into clean, functional, and impactful solutions.
-          Constantly learning and improving to write better, more efficient code.
-        </p>
-        <Link
-          href="https://drive.google.com/file/d/1Yrw_fTMP2obVC8GmwQFXeiyT4EC5_oXR/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-6 sm:px-8 py-3 bg-[#15212C] text-[#6ec1e4] font-semibold rounded-full shadow-md hover:text-[#4998A9] hover:bg-[#1a2d3a] transition-colors duration-200 dark:bg-[#6ec1e4] dark:text-[#15212C] dark:hover:bg-[#7ed4f5] dark:hover:text-[#0f1820] text-sm sm:text-base font-lexend focus:outline-none focus:ring-2 focus:ring-[#6ec1e4] focus:ring-offset-2"
-        >
-          Resume
-        </Link>
-      </motion.div>
-
-      {/* Right Image Section */}
-      <motion.div
-        className="relative z-10 w-full lg:w-1/2 flex justify-center items-center h-auto mt-4 sm:mt-8 lg:mt-0 mb-8 sm:mb-12 lg:mb-0"
-        initial={{ opacity: 0, y: 100 }}
-        animate={ready ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-      >
-        <Image
-          src="/images/Portfolio_profile2.jpg"
-          alt="Hero Image"
-          width={400}
-          height={500}
-          priority
-          className="h-[50vh] sm:h-[65vh] lg:h-[80vh] max-h-[500px] lg:max-h-none w-auto object-cover rounded-xl shadow-xl lg:ml-24"
-        />
-      </motion.div>
     </section>
   );
 }

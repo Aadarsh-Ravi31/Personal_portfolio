@@ -1,59 +1,63 @@
 "use client";
-import { motion } from "framer-motion";
-import { Mail, Linkedin, Github } from "lucide-react"; // Add more icons as needed
+import { ArrowUpRight } from "lucide-react";
+import { Reveal, TextReveal } from "./motion";
 
-const contactLinks = [
-  {
-    icon: Mail,
-    label: "Email",
-    href: "mailto:ravi.aad@northeastern.edu",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/aadarsh-ravi/",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    href: "https://github.com/Aadarsh-Ravi31",
-  },
+const EMAIL = "aadarsh.ravi13@gmail.com";
+
+const socials = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/aadarsh-ravi/" },
+  { label: "GitHub", href: "https://github.com/Aadarsh-Ravi31" },
+  { label: "Email", href: `mailto:${EMAIL}` },
 ];
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-[#f8f9fa] dark:bg-gray-900/30 py-16 sm:py-20 px-4 sm:px-6 md:px-10">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto text-center"
-      >
-        <h2 className="text-3xl sm:text-4xl font-bold font-lexend mb-8 sm:mb-10 text-gray-800 dark:text-gray-100">
-          Let&apos;s Connect
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-10 sm:mb-12 text-base sm:text-lg max-w-2xl mx-auto">
-          Feel free to reach out through any of the platforms below.
-        </p>
+    <section
+      id="contact"
+      className="bg-background pt-24 pb-16 px-4 sm:px-6 md:px-10"
+    >
+      <div className="max-w-7xl mx-auto text-center">
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-widest text-muted mb-10 sm:mb-14">
+            (04) &nbsp; Contact
+          </p>
+        </Reveal>
 
-        <div className="flex justify-center gap-8 sm:gap-10 flex-wrap">
-          {contactLinks.map(({ icon: Icon, label, href }) => (
-            <motion.a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex flex-col items-center text-[#15212C] dark:text-gray-200 hover:text-[#6ec1e4] dark:hover:text-[#6ec1e4] transition-colors p-3 rounded-xl hover:bg-gray-200/50 dark:hover:bg-gray-800/50"
+        <h2 className="text-center font-display font-bold uppercase tracking-tight leading-[0.85] text-[clamp(2.5rem,12vw,11rem)]">
+          <TextReveal as="span" text="Let's" className="block" />
+          <TextReveal as="span" text="Talk" className="block" delay={0.1} />
+        </h2>
+
+        <Reveal delay={0.2} className="mt-10 flex justify-center">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="group inline-flex items-center gap-2 text-xl sm:text-3xl font-display border-b border-border hover:border-foreground pb-1 transition-colors"
+          >
+            {EMAIL}
+            <ArrowUpRight
+              className="transition-transform duration-300 group-hover:rotate-45"
+              size={28}
+            />
+          </a>
+        </Reveal>
+
+        <Reveal
+          delay={0.3}
+          className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-widest"
+        >
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith("http") ? "_blank" : undefined}
+              rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="text-muted hover:text-foreground transition-colors inline-flex items-center gap-1"
             >
-              <Icon size={36} />
-              <span className="text-sm font-lexend mt-2">{label}</span>
-            </motion.a>
+              {s.label} <ArrowUpRight size={12} />
+            </a>
           ))}
-        </div>
-      </motion.div>
+        </Reveal>
+      </div>
     </section>
   );
 }
