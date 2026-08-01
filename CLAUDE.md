@@ -12,7 +12,8 @@ Rebuild the portfolio to closely emulate the **"Majd" Framer template** (`majd-p
 - **The app lives in `portfolio/`** (not repo root).
 - Run: `cd portfolio && npm run dev` → http://localhost:4000
 - Build (SSG for `/work/*`): `cd portfolio && npm run build`
-- **Known benign warnings:** `@next/swc` version mismatch (15.5.7 vs 15.5.11) + "Failed to patch lockfile" — harmless. Should eventually pin Next to a real published version to kill it.
+- **Next.js pinned to `15.5.22`** (real, consistent release). Do NOT use `15.5.11` — it's a broken publish with no matching `@next/swc` binaries, which 404s the Vercel Linux build. Never hand-pin `@next/swc*` in `optionalDependencies`; let Next manage it.
+- **Vercel note:** the app is in `portfolio/`, so the Vercel project's **Root Directory must be `portfolio`**.
 - If dev server misbehaves: kill port 4000, `rm -rf portfolio/.next`, restart.
 
 ## Design system
@@ -53,8 +54,7 @@ Rebuild the portfolio to closely emulate the **"Majd" Framer template** (`majd-p
 - Swap the 3 remaining projects with real content (repo + cover image + case study).
 - Experience deep-dive: make bullets visible by default; consider editorial year-left/details-right redesign; grayscale logos.
 - Delete now-unused `portfolio/public/icons/*` (old tech logos — Expertise no longer uses them).
-- Pin Next.js to a real release to remove the swc/lockfile warnings.
-- Consider cleaner demo hosting (YouTube unlisted) instead of Drive; add `metadataBase` + OG images.
+- Consider cleaner demo hosting (YouTube unlisted) instead of Drive; add `metadataBase` + OG images (build warns it's unset).
 
 ## Working style the user likes
 
