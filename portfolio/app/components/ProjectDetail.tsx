@@ -160,13 +160,13 @@ export default function ProjectDetail({ project, prev, next }: ProjectDetailProp
             <button
               onClick={() => setZoomed(true)}
               aria-label="Enlarge system architecture diagram"
-              className="block w-full rounded-2xl border border-border bg-white p-4 sm:p-6 overflow-x-auto cursor-zoom-in"
+              className="block w-full rounded-2xl border border-border bg-white p-4 sm:p-6 cursor-zoom-in"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={project.architectureImage}
                 alt={`${project.title} system architecture`}
-                className="w-full min-w-[720px] h-auto"
+                className="w-full h-auto"
               />
             </button>
           </Reveal>
