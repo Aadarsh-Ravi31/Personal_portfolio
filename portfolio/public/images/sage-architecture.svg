@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1000" width="880" height="1000" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="7" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="440" y="34" text-anchor="middle" font-size="20" font-weight="800" fill="#1a1a2e" letter-spacing="-0.3">SAGE — Security &amp; Reasoning Pipeline</text>
+  <text x="440" y="55" text-anchor="middle" font-size="11.5" fill="#6b7280" letter-spacing="1.5">8 LAYERS · GPT-4o · LANGGRAPH · CHROMADB · STREAMLIT</text>
+
+  <!-- Arrows (drawn first, behind boxes) -->
+  <g stroke="#9ca3af" stroke-width="2" marker-end="url(#ar)">
+    <line x1="440" y1="122" x2="440" y2="148"/>
+    <line x1="440" y1="212" x2="440" y2="233"/>
+    <line x1="440" y1="297" x2="440" y2="318"/>
+    <line x1="440" y1="382" x2="440" y2="403"/>
+    <line x1="440" y1="467" x2="440" y2="488"/>
+    <line x1="440" y1="552" x2="440" y2="573"/>
+    <line x1="440" y1="727" x2="440" y2="758"/>
+    <line x1="440" y1="822" x2="440" y2="843"/>
+    <line x1="440" y1="907" x2="440" y2="928"/>
+  </g>
+
+  <!-- Input pill -->
+  <rect x="350" y="80" width="180" height="40" rx="20" fill="#0f0e0c"/>
+  <text x="440" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1">USER QUERY</text>
+
+  <!-- Phase brackets -->
+  <g stroke-width="2" fill="none">
+    <path d="M188 150 H176 V378 H188" stroke="#E8531A"/>
+    <path d="M188 405 H176 V548 H188" stroke="#0B8A7C"/>
+    <path d="M188 575 H176 V723 H188" stroke="#4f46e5"/>
+    <path d="M188 760 H176 V903 H188" stroke="#475569"/>
+  </g>
+  <text x="150" y="264" text-anchor="middle" transform="rotate(-90 150 264)" font-size="11" font-weight="700" fill="#E8531A" letter-spacing="2">GUARD</text>
+  <text x="150" y="476" text-anchor="middle" transform="rotate(-90 150 476)" font-size="11" font-weight="700" fill="#0B8A7C" letter-spacing="2">RETRIEVE</text>
+  <text x="150" y="649" text-anchor="middle" transform="rotate(-90 150 649)" font-size="11" font-weight="700" fill="#4f46e5" letter-spacing="2">REASON</text>
+  <text x="150" y="831" text-anchor="middle" transform="rotate(-90 150 831)" font-size="11" font-weight="700" fill="#475569" letter-spacing="2">RESPOND</text>
+
+  <!-- L0 -->
+  <rect x="200" y="148" width="480" height="60" rx="12" fill="#FDEEEA" stroke="#E8531A" stroke-width="1.5"/>
+  <text x="224" y="175" font-size="15" font-weight="700" fill="#1a1a2e">L0 · Query Sanitization</text>
+  <text x="224" y="194" font-size="11.5" fill="#6b7280">Strip control tokens · enforce 1,200-char cap</text>
+
+  <!-- L1 -->
+  <rect x="200" y="233" width="480" height="60" rx="12" fill="#FDEEEA" stroke="#E8531A" stroke-width="1.5"/>
+  <text x="224" y="260" font-size="15" font-weight="700" fill="#1a1a2e">L1 · Injection Detection</text>
+  <text x="224" y="279" font-size="11.5" fill="#6b7280">52-pattern regex across 9 attack families</text>
+
+  <!-- L2 -->
+  <rect x="200" y="318" width="480" height="60" rx="12" fill="#FDEEEA" stroke="#E8531A" stroke-width="1.5"/>
+  <text x="224" y="345" font-size="15" font-weight="700" fill="#1a1a2e">L2 · Grounding Gate</text>
+  <text x="224" y="364" font-size="11.5" fill="#6b7280">Filter out-of-scope questions before retrieval</text>
+
+  <!-- L3 -->
+  <rect x="200" y="403" width="480" height="60" rx="12" fill="#E9FBF6" stroke="#0B8A7C" stroke-width="1.5"/>
+  <text x="224" y="430" font-size="15" font-weight="700" fill="#1a1a2e">L3 · Query Expansion</text>
+  <text x="224" y="449" font-size="11.5" fill="#6b7280">57 curated compliance synonym mappings</text>
+
+  <!-- L4 -->
+  <rect x="200" y="488" width="480" height="60" rx="12" fill="#E9FBF6" stroke="#0B8A7C" stroke-width="1.5"/>
+  <text x="224" y="515" font-size="15" font-weight="700" fill="#1a1a2e">L4 · Hybrid RAG Retrieval</text>
+  <text x="224" y="534" font-size="11.5" fill="#6b7280">0.6 × semantic + 0.4 × keyword over section chunks</text>
+
+  <!-- L5 agent (dark) -->
+  <rect x="200" y="573" width="480" height="150" rx="14" fill="#1a1a2e"/>
+  <text x="224" y="600" font-size="15" font-weight="700" fill="#ffffff">L5 · LangGraph ReAct Agent</text>
+  <text x="224" y="619" font-size="11.5" fill="#9ca3af">GPT-4o — reason + act loop over policy tools</text>
+  <g font-family="ui-monospace, monospace" font-size="11.5" fill="#e5e7eb">
+    <rect x="216" y="632" width="222" height="36" rx="8" fill="#2f2f45"/>
+    <text x="230" y="654">search_policy</text>
+    <rect x="442" y="632" width="222" height="36" rx="8" fill="#2f2f45"/>
+    <text x="456" y="654">check_cross_references</text>
+    <rect x="216" y="676" width="222" height="36" rx="8" fill="#2f2f45"/>
+    <text x="230" y="698">detect_policy_conflicts</text>
+    <rect x="442" y="676" width="222" height="36" rx="8" fill="#2f2f45"/>
+    <text x="456" y="698">assess_risk</text>
+  </g>
+
+  <!-- L6 -->
+  <rect x="200" y="758" width="480" height="60" rx="12" fill="#EEF1F6" stroke="#475569" stroke-width="1.5"/>
+  <text x="224" y="785" font-size="15" font-weight="700" fill="#1a1a2e">L6 · Post-Processing</text>
+  <text x="224" y="804" font-size="11.5" fill="#6b7280">Citation verification · confidence &amp; risk scoring</text>
+
+  <!-- L7 -->
+  <rect x="200" y="843" width="480" height="60" rx="12" fill="#EEF1F6" stroke="#475569" stroke-width="1.5"/>
+  <text x="224" y="870" font-size="15" font-weight="700" fill="#1a1a2e">L7 · Audit Logging</text>
+  <text x="224" y="889" font-size="11.5" fill="#6b7280">JSON audit trails · feedback capture</text>
+
+  <!-- Output pill -->
+  <rect x="330" y="928" width="220" height="40" rx="20" fill="#0f0e0c"/>
+  <text x="440" y="953" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1">STRUCTURED ANSWER</text>
+</svg>

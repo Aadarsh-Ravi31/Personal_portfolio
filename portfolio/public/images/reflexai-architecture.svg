@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1250 520" width="1250" height="520" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="8" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="625" y="32" text-anchor="middle" font-size="20" font-weight="800" fill="#1a1a2e" letter-spacing="-0.3">ReflexAI — Reflexivity-Grounded Risk Engine</text>
+  <text x="625" y="53" text-anchor="middle" font-size="11.5" fill="#6b7280" letter-spacing="1.3">DUAL-LANE RAG · yFINANCE · CHROMADB · GEMINI · VERCEL</text>
+
+  <!-- Lane labels -->
+  <text x="185" y="110" font-size="10.5" font-weight="700" fill="#0B8A7C" letter-spacing="1.2">QUANTITATIVE REALITY</text>
+  <text x="185" y="290" font-size="10.5" font-weight="700" fill="#4f46e5" letter-spacing="1.2">NARRATIVE · RAG</text>
+
+  <!-- Arrows -->
+  <g stroke="#9ca3af" stroke-width="2.3" marker-end="url(#ar)" fill="none">
+    <!-- query branches -->
+    <line x1="152" y1="250" x2="182" y2="158"/>
+    <line x1="152" y1="264" x2="182" y2="332"/>
+    <!-- top lane -->
+    <line x1="327" y1="155" x2="356" y2="155"/>
+    <line x1="501" y1="155" x2="530" y2="155"/>
+    <!-- bottom lane -->
+    <line x1="327" y1="335" x2="356" y2="335"/>
+    <line x1="501" y1="335" x2="530" y2="335"/>
+    <!-- converge -->
+    <line x1="675" y1="155" x2="717" y2="218"/>
+    <line x1="675" y1="335" x2="717" y2="292"/>
+    <line x1="872" y1="255" x2="916" y2="255"/>
+    <line x1="1072" y1="255" x2="1086" y2="255"/>
+  </g>
+
+  <!-- User Query pill -->
+  <rect x="30" y="235" width="120" height="44" rx="22" fill="#0f0e0c"/>
+  <text x="90" y="261" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="0.5">USER QUERY</text>
+
+  <!-- Top lane: quantitative -->
+  <g>
+    <rect x="185" y="120" width="140" height="70" rx="12" fill="#E9FBF6" stroke="#0B8A7C" stroke-width="1.5"/>
+    <text x="199" y="150" font-size="13" font-weight="700" fill="#1a1a2e">Market Data</text>
+    <text x="199" y="169" font-size="10.5" fill="#6b7280">yfinance · annual</text>
+
+    <rect x="359" y="120" width="140" height="70" rx="12" fill="#E9FBF6" stroke="#0B8A7C" stroke-width="1.5"/>
+    <text x="373" y="150" font-size="13" font-weight="700" fill="#1a1a2e">Normalize</text>
+    <text x="373" y="169" font-size="10.5" fill="#6b7280">Pandas statements</text>
+
+    <rect x="533" y="120" width="140" height="70" rx="12" fill="#E9FBF6" stroke="#0B8A7C" stroke-width="1.5"/>
+    <text x="547" y="147" font-size="13" font-weight="700" fill="#1a1a2e">Risk Diagnostics</text>
+    <text x="547" y="165" font-size="10" fill="#6b7280">liquidity · leverage</text>
+    <text x="547" y="179" font-size="10" fill="#6b7280">profitability</text>
+  </g>
+
+  <!-- Bottom lane: RAG -->
+  <g>
+    <rect x="185" y="300" width="140" height="70" rx="12" fill="#EDEBFC" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="199" y="330" font-size="13" font-weight="700" fill="#1a1a2e">Soros Corpus</text>
+    <text x="199" y="349" font-size="10.5" fill="#6b7280">curated Q&amp;A</text>
+
+    <rect x="359" y="300" width="140" height="70" rx="12" fill="#EDEBFC" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="373" y="330" font-size="13" font-weight="700" fill="#1a1a2e">Embeddings</text>
+    <text x="373" y="349" font-size="10" fill="#6b7280">Sentence-Transformer</text>
+
+    <rect x="533" y="300" width="140" height="70" rx="12" fill="#EDEBFC" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="547" y="330" font-size="13" font-weight="700" fill="#1a1a2e">Vector Search</text>
+    <text x="547" y="349" font-size="10.5" fill="#6b7280">ChromaDB retrieval</text>
+  </g>
+
+  <!-- Context assembly -->
+  <rect x="720" y="185" width="150" height="140" rx="14" fill="#EEF1F6" stroke="#475569" stroke-width="1.5"/>
+  <text x="736" y="216" font-size="13" font-weight="700" fill="#1a1a2e">Context</text>
+  <text x="736" y="234" font-size="13" font-weight="700" fill="#1a1a2e">Assembly</text>
+  <text x="736" y="262" font-size="10.5" fill="#6b7280">market snapshot</text>
+  <text x="736" y="279" font-size="10.5" fill="#6b7280">+ retrieved concepts</text>
+  <text x="736" y="296" font-size="10.5" fill="#6b7280">+ ticker context</text>
+
+  <!-- Gemini (LLM) -->
+  <rect x="920" y="205" width="150" height="100" rx="14" fill="#1a1a2e"/>
+  <text x="936" y="248" font-size="14" font-weight="700" fill="#ffffff">Google Gemini</text>
+  <text x="936" y="269" font-size="10.5" fill="#9ca3af">grounded synthesis</text>
+  <text x="936" y="285" font-size="10.5" fill="#9ca3af">reflexivity lens</text>
+
+  <!-- Output -->
+  <rect x="1090" y="205" width="140" height="100" rx="14" fill="#ffffff" stroke="#0f0e0c" stroke-width="1.8"/>
+  <text x="1105" y="243" font-size="13" font-weight="700" fill="#1a1a2e">Output</text>
+  <text x="1105" y="264" font-size="10.5" fill="#6b7280">risk report</text>
+  <text x="1105" y="281" font-size="10.5" fill="#6b7280">+ Soros narrative</text>
+
+  <!-- Bottom band -->
+  <rect x="40" y="420" width="1190" height="44" rx="12" fill="#0f0e0c"/>
+  <text x="635" y="447" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff" letter-spacing="0.4">GROUNDED REASONING  ·  retrieval-augmented  ·  ticker-aware context  ·  annual data (no live execution — research use)</text>
+
+  <!-- Caption -->
+  <text x="635" y="494" text-anchor="middle" font-size="10.5" fill="#9ca3af">Reflexivity: perception → price → fundamentals  ·  3 REST endpoints: /financials · /chatbot · /ragbot</text>
+</svg>

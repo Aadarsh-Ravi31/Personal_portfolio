@@ -39,9 +39,9 @@ export default function Projects() {
           </Reveal>
         </div>
 
-        {/* Grid */}
+        {/* Grid — first 4 on home; full list lives on /work */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
-          {projects.map((project, i) => (
+          {projects.slice(0, 4).map((project, i) => (
             <Reveal key={project.slug} delay={(i % 2) * 0.08}>
               <ProjectCard project={project} />
             </Reveal>
