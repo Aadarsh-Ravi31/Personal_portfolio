@@ -16,7 +16,31 @@ export default {
         foreground: "var(--fg)",
         muted: "var(--muted)",
         border: "var(--border)",
-        accent: "var(--accent)",
+        // Channel-var form so opacity modifiers work (fill-accent/[0.07] in the
+        // architecture diagrams). Solid usages are unchanged (alpha defaults 1).
+        accent: "rgb(var(--accent-rgb) / <alpha-value>)",
+
+        // PodcastIQ deep-dive tokens (ink/line/elev family). Channel-var form
+        // so opacity modifiers (bg-ink/[0.06], text-bg/70) resolve. `.dark`
+        // inverts them and `.console-surface` rebinds them to a fixed dark +
+        // coral palette so the agent console reads as embedded software.
+        bg: "rgb(var(--bg-rgb) / <alpha-value>)",
+        "bg-elev": "rgb(var(--bg-elev-rgb) / <alpha-value>)",
+        ink: "rgb(var(--ink-rgb) / <alpha-value>)",
+        "ink-soft": "rgb(var(--ink-soft-rgb) / <alpha-value>)",
+        "ink-faint": "rgb(var(--ink-faint-rgb) / <alpha-value>)",
+        line: "var(--line)",
+        "accent-soft": "var(--accent-soft)",
+      },
+      borderRadius: {
+        brand: "16px",
+        "brand-sm": "10px",
+      },
+      boxShadow: {
+        brand: "var(--shadow-brand)",
+      },
+      maxWidth: {
+        measure: "68ch",
       },
       fontFamily: {
         display: "var(--font-geist-sans), sans-serif",

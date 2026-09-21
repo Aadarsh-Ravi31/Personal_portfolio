@@ -492,9 +492,9 @@ export const projects: Project[] = [
   {
     slug: "imdb-analytics-pipeline",
     title: "IMDb Analytics Pipeline",
-    tagline: "End-to-end data pipeline & BI dashboards on 200M+ IMDb records",
+    tagline: "End-to-end data pipeline & BI dashboards on 190M+ IMDb records",
     description:
-      "A production-style data engineering pipeline that ingests, profiles, cleans, and models ~200 million IMDb records into a Snowflake warehouse powering self-service Power BI and Tableau dashboards.",
+      "A production-style data engineering pipeline that ingests, profiles, cleans, and models ~190 million IMDb records into a Snowflake warehouse powering self-service Power BI and Tableau dashboards.",
     role: "Data Engineer (team of 2)",
     year: "2025",
     tech: [
@@ -522,7 +522,7 @@ export const projects: Project[] = [
     featured: true,
     architectureImage: "/images/imdb-architecture.svg",
     metrics: [
-      { value: "200M+", label: "Records processed" },
+      { value: "190M+", label: "Records processed" },
       { value: "7", label: "Source datasets" },
       { value: "91M", label: "Cast/crew links" },
       { value: "2-layer", label: "Snowflake warehouse" },
@@ -530,13 +530,13 @@ export const projects: Project[] = [
     body: [
       {
         heading: "The Problem",
-        body: "IMDb publishes its full catalog as raw, messy public data — ~200 million records across seven datasets, riddled with placeholder values, string-encoded numbers, and multi-valued fields. In that state it's useless for analytics. The goal was to turn it into a clean, trustworthy warehouse that powers self-service BI.",
+        body: "IMDb publishes its full catalog as raw, messy public data — ~190 million records across seven datasets, riddled with placeholder values, string-encoded numbers, and multi-valued fields. In that state it's useless for analytics. The goal was to turn it into a clean, trustworthy warehouse that powers self-service BI.",
       },
       {
         heading: "What I Built",
         body: "An end-to-end pipeline from raw TSV to dashboards:",
         points: [
-          "Ingestion of seven compressed IMDb TSV datasets (~200M records total, up to 91M rows in a single table)",
+          "Ingestion of seven compressed IMDb TSV datasets (~190M records total, up to 91M rows in a single table)",
           "Data profiling and cleaning in Alteryx + Python — normalizing IMDb's \\N placeholders to NULLs, casting string-encoded numerics, and validating logical constraints",
           "Azure Data Factory pipelines for automated, dependency-aware loads with error handling and re-runs",
           "A two-layer Snowflake warehouse: 7 staging tables (cleaned raw) feeding a curated dimensional layer optimized for BI",
