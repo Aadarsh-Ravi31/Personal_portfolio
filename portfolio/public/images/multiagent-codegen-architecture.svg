@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 910" width="880" height="910" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="7" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="440" y="34" text-anchor="middle" font-size="20" font-weight="800" fill="#1a1a2e" letter-spacing="-0.3">Multi-Agent CodeGen — RAG + CrewAI Pipeline</text>
+  <text x="440" y="55" text-anchor="middle" font-size="11.5" fill="#6b7280" letter-spacing="1.2">6 SOURCES · AIRFLOW · PINECONE 2M+ · CREWAI · DOCKER SANDBOX</text>
+
+  <!-- Arrows (behind boxes) -->
+  <g stroke="#9ca3af" stroke-width="2" marker-end="url(#ar)">
+    <line x1="440" y1="122" x2="440" y2="146"/>
+    <line x1="440" y1="210" x2="440" y2="234"/>
+    <line x1="440" y1="298" x2="440" y2="322"/>
+    <line x1="440" y1="386" x2="440" y2="410"/>
+    <line x1="440" y1="474" x2="440" y2="498"/>
+    <line x1="440" y1="668" x2="440" y2="692"/>
+    <line x1="440" y1="756" x2="440" y2="780"/>
+  </g>
+
+  <!-- Input pill -->
+  <rect x="345" y="80" width="190" height="40" rx="20" fill="#0f0e0c"/>
+  <text x="440" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1">USER REQUEST</text>
+
+  <!-- L1 Data Sources -->
+  <rect x="200" y="146" width="480" height="62" rx="12" fill="#EEF1F6" stroke="#475569" stroke-width="1.5"/>
+  <text x="224" y="173" font-size="15" font-weight="700" fill="#1a1a2e">Data Ingestion · 6 sources</text>
+  <text x="224" y="193" font-size="11.5" fill="#6b7280">GitHub · Stack Overflow · docs · issues/PRs · examples · blogs</text>
+
+  <!-- L2 Processing -->
+  <rect x="200" y="234" width="480" height="62" rx="12" fill="#FDEEEA" stroke="#E8531A" stroke-width="1.5"/>
+  <text x="224" y="261" font-size="15" font-weight="700" fill="#1a1a2e">Airflow ETL · Processing</text>
+  <text x="224" y="281" font-size="11.5" fill="#6b7280">AST parse · clean · validate · dedupe — 10K–50K snippets</text>
+
+  <!-- L3 Storage -->
+  <rect x="200" y="322" width="480" height="62" rx="12" fill="#E9FBF6" stroke="#0B8A7C" stroke-width="1.5"/>
+  <text x="224" y="349" font-size="15" font-weight="700" fill="#1a1a2e">Storage Layer</text>
+  <text x="224" y="369" font-size="11.5" fill="#6b7280">GCS (raw + processed) · BigQuery · Pinecone — 2M+ embeddings</text>
+
+  <!-- L4 RAG -->
+  <rect x="200" y="410" width="480" height="62" rx="12" fill="#EAF0FE" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="224" y="437" font-size="15" font-weight="700" fill="#1a1a2e">RAG Retrieval · FastAPI</text>
+  <text x="224" y="457" font-size="11.5" fill="#6b7280">top-K semantic retrieval (text-embedding-3-large) · route to agents</text>
+
+  <!-- L5 CrewAI agents (dark) -->
+  <rect x="200" y="498" width="480" height="170" rx="14" fill="#1a1a2e"/>
+  <text x="224" y="525" font-size="15" font-weight="700" fill="#ffffff">CrewAI Multi-Agent System · GPT-4</text>
+  <text x="224" y="544" font-size="11.5" fill="#9ca3af">design-first · iterative refinement loop on test failure</text>
+  <g font-family="ui-monospace, monospace" font-size="11" fill="#e5e7eb">
+    <rect x="216" y="556" width="146" height="34" rx="8" fill="#2f2f45"/>
+    <text x="230" y="577">Requirements</text>
+    <rect x="367" y="556" width="146" height="34" rx="8" fill="#2f2f45"/>
+    <text x="381" y="577">Programmer</text>
+    <rect x="518" y="556" width="146" height="34" rx="8" fill="#2f2f45"/>
+    <text x="532" y="577">Test Designer</text>
+    <rect x="216" y="598" width="222" height="34" rx="8" fill="#2f2f45"/>
+    <text x="230" y="619">Test Executor · Docker</text>
+    <rect x="442" y="598" width="222" height="34" rx="8" fill="#2f2f45"/>
+    <text x="456" y="619">Documentation Generator</text>
+  </g>
+  <text x="224" y="653" font-size="11" fill="#9ca3af">Pass@1 78.2% · quality 7.8/10 · ~23s latency · $0.16/request</text>
+
+  <!-- L6 Guardrails -->
+  <rect x="200" y="692" width="480" height="62" rx="12" fill="#EDEBFC" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="224" y="719" font-size="15" font-weight="700" fill="#1a1a2e">Guardrails &amp; Sandbox</text>
+  <text x="224" y="739" font-size="11.5" fill="#6b7280">static analysis · security scan · HITL review · Docker execution</text>
+
+  <!-- Output pill -->
+  <rect x="300" y="780" width="280" height="40" rx="20" fill="#0f0e0c"/>
+  <text x="440" y="805" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1">CODE + TESTS + DOCS</text>
+
+  <!-- Serve caption -->
+  <text x="440" y="852" text-anchor="middle" font-size="10.5" fill="#9ca3af">Served through a Streamlit dashboard — code output, agent workflow, and quality scores</text>
+</svg>

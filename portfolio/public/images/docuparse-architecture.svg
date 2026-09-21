@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 470" width="1160" height="470" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 8" refX="8" refY="4" markerWidth="8" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="580" y="34" text-anchor="middle" font-size="20" font-weight="800" fill="#1a1a2e" letter-spacing="-0.3">DocuParse — SEC Filing Extraction Pipeline</text>
+  <text x="580" y="55" text-anchor="middle" font-size="11.5" fill="#6b7280" letter-spacing="1.1">676 PAGES IN ~3 MIN · DOCLING · DETECTRON2 + LAYOUTLMv3 · XBRL VALIDATION · DVC</text>
+
+  <!-- Flow arrows (behind cards) -->
+  <g stroke="#9ca3af" stroke-width="2.5" marker-end="url(#ar)">
+    <line x1="222" y1="215" x2="262" y2="215"/>
+    <line x1="447" y1="215" x2="487" y2="215"/>
+    <line x1="672" y1="215" x2="712" y2="215"/>
+    <line x1="897" y1="215" x2="937" y2="215"/>
+  </g>
+
+  <!-- 01 DOWNLOAD -->
+  <rect x="40" y="110" width="180" height="210" rx="14" fill="#EEF1F6" stroke="#475569" stroke-width="1.5"/>
+  <text x="56" y="137" font-size="10.5" font-weight="700" fill="#475569" letter-spacing="1">01 · DOWNLOAD</text>
+  <text x="56" y="163" font-size="15" font-weight="700" fill="#1a1a2e">SEC EDGAR</text>
+  <g font-size="11.5" fill="#4b5563">
+    <text x="56" y="192">10-K &amp; 10-Q filings</text>
+    <text x="56" y="214">automated fetch</text>
+    <text x="56" y="236">raw PDF landing</text>
+  </g>
+
+  <!-- 02 EXTRACT -->
+  <rect x="265" y="110" width="180" height="210" rx="14" fill="#FDEEEA" stroke="#E8531A" stroke-width="1.5"/>
+  <text x="281" y="137" font-size="10.5" font-weight="700" fill="#E8531A" letter-spacing="1">02 · EXTRACT</text>
+  <text x="281" y="163" font-size="15" font-weight="700" fill="#1a1a2e">Text + Tables</text>
+  <g font-size="11.5" fill="#4b5563">
+    <text x="281" y="192">native PDF + OCR</text>
+    <text x="281" y="214">99.56% native</text>
+    <text x="281" y="236">Camelot + pdfplumber</text>
+  </g>
+
+  <!-- 03 LAYOUT -->
+  <rect x="490" y="110" width="180" height="210" rx="14" fill="#EAF0FE" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="506" y="137" font-size="10.5" font-weight="700" fill="#2563eb" letter-spacing="1">03 · LAYOUT</text>
+  <text x="506" y="163" font-size="15" font-weight="700" fill="#1a1a2e">Dual-Model Detect</text>
+  <g font-size="11.5" fill="#4b5563">
+    <text x="506" y="192">Detectron2</text>
+    <text x="506" y="214">+ LayoutLMv3</text>
+    <text x="506" y="236">cross-verified</text>
+  </g>
+
+  <!-- 04 UNDERSTAND -->
+  <rect x="715" y="110" width="180" height="210" rx="14" fill="#E9FBF6" stroke="#0B8A7C" stroke-width="1.5"/>
+  <text x="731" y="137" font-size="10.5" font-weight="700" fill="#0B8A7C" letter-spacing="1">04 · UNDERSTAND</text>
+  <text x="731" y="163" font-size="15" font-weight="700" fill="#1a1a2e">Docling</text>
+  <g font-size="11.5" fill="#4b5563">
+    <text x="731" y="192">IBM document AI</text>
+    <text x="731" y="214">structured parse</text>
+    <text x="731" y="236">187 tables extracted</text>
+  </g>
+
+  <!-- 05 VALIDATE -->
+  <rect x="940" y="110" width="180" height="210" rx="14" fill="#EDEBFC" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="956" y="137" font-size="10.5" font-weight="700" fill="#4f46e5" letter-spacing="1">05 · VALIDATE</text>
+  <text x="956" y="163" font-size="15" font-weight="700" fill="#1a1a2e">XBRL Cross-Check</text>
+  <g font-size="11.5" fill="#4b5563">
+    <text x="956" y="192">2,954 concepts</text>
+    <text x="956" y="214">2.6% word error</text>
+    <text x="956" y="236">JSON · MD · CSV</text>
+  </g>
+
+  <!-- Pipeline band -->
+  <rect x="40" y="350" width="1080" height="44" rx="12" fill="#0f0e0c"/>
+  <text x="580" y="377" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff" letter-spacing="0.5">DVC-MANAGED PIPELINE  ·  reproducible `dvc repro`  ·  regression tests + quality thresholds  ·  per-stage runtime &amp; memory benchmarks</text>
+
+  <!-- Cost caption -->
+  <text x="580" y="424" text-anchor="middle" font-size="10.5" fill="#9ca3af">Build vs buy: $1.05 per 1,000 pages vs $1.50–$50 for commercial document AI — 30–98% cost savings, full data privacy</text>
+</svg>

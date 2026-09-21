@@ -229,6 +229,178 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "docuparse",
+    title: "DocuParse",
+    tagline: "Intelligent SEC-filing extraction, validated against XBRL",
+    description:
+      "DocuParse turns dense SEC 10-K/10-Q PDFs into structured, verified data — a DVC-managed pipeline that combines native text + OCR, dual-model layout detection, and IBM's Docling, then cross-checks every figure against authoritative XBRL filings.",
+    role: "AI / Data Engineer",
+    year: "2025",
+    tech: [
+      "Docling",
+      "Detectron2",
+      "LayoutLMv3",
+      "Camelot",
+      "pdfplumber",
+      "XBRL",
+      "DVC",
+      "Streamlit",
+      "Python",
+    ],
+    cover: {
+      src: "/images/docuparse.avif",
+      alt: "DocuParse — SEC filing extraction pipeline",
+      width: 1080,
+      height: 617,
+    },
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Aadarsh-Ravi31/Docuparse",
+        external: true,
+      },
+    ],
+    featured: true,
+    architectureImage: "/images/docuparse-architecture.svg",
+    metrics: [
+      { value: "676", label: "Pages in ~3 min" },
+      { value: "99.56%", label: "Native text extraction" },
+      { value: "187", label: "Tables extracted" },
+      { value: "2,954", label: "XBRL concepts validated" },
+    ],
+    body: [
+      {
+        heading: "The Problem",
+        body: "SEC filings hold the numbers that matter — revenue, liabilities, cash flows — but they're locked inside long, inconsistently formatted PDFs. Commercial document-AI services parse them, but at $1.50–$50 per 1,000 pages, with no data privacy and no financial-document tuning. I wanted to prove you could match their accuracy on an open-source stack, cheaper, and self-hosted — and, crucially, verify the output against ground truth instead of trusting it.",
+      },
+      {
+        heading: "What I Built",
+        body: "A reproducible, end-to-end pipeline from raw EDGAR filing to validated, structured data:",
+        points: [
+          "Automated download of 10-K/10-Q filings from SEC EDGAR into a DVC-managed raw layer",
+          "Hybrid text extraction — native PDF parsing with an OCR fallback — reaching 99.56% native extraction (OCR rarely needed)",
+          "Dual-method table detection (Camelot + pdfplumber) pulling 187 financial tables out of the statements",
+          "Dual-model layout analysis (Detectron2 + LayoutLMv3) cross-verifying document structure, plus IBM's Docling for document understanding",
+          "An XBRL cross-verification engine that checks extracted figures against 2,954 authoritative concepts from the companies' official filings",
+          "A lightweight Streamlit dashboard that visualizes evaluation metrics, per-stage benchmarks, and the build-vs-buy cost analysis",
+        ],
+      },
+      {
+        heading: "Key Decisions",
+        body: "The interesting trade-offs — and why I made them:",
+        points: [
+          "Chose an open-source stack (Docling, Detectron2, LayoutLMv3) over cloud document AI to get full data privacy, no rate limits, and financial-document tuning at $1.05 per 1,000 pages — a 30–98% cost saving",
+          "Ran two layout models instead of one so their outputs cross-verify, catching structure errors a single model would miss",
+          "Made XBRL the source of truth: rather than eyeballing extraction quality, every figure is validated against the company's own filed data",
+          "Managed the whole pipeline with DVC so each stage is versioned and `dvc repro` reproduces results exactly — and kept the dashboard's dependencies isolated from the heavy ML stack so it deploys anywhere",
+        ],
+      },
+      {
+        heading: "Challenges",
+        body: "The hard parts:",
+        points: [
+          "Layout diversity: financial statements vary wildly in structure, so no single extraction method was reliable — the hybrid text + dual-model layout approach exists precisely to cover each other's blind spots",
+          "Accuracy vs. speed at volume: extraction is minutes-per-document heavy, so I pushed for native parsing first and reserved OCR for the 0.44% of content that truly needed it",
+          "Trusting the output: I built regression tests with quality thresholds (word error rate, table precision/recall) and distribution monitoring so a bad run is caught automatically rather than shipped",
+        ],
+      },
+      {
+        heading: "Results",
+        body: "DocuParse processes 676 pages in about 3 minutes with a 2.6% word error rate and perfect table precision/recall on the evaluation set, validating 2,954 XBRL concepts against authoritative data. The build-vs-buy analysis shows it matches commercial accuracy at $1.05 per 1,000 pages — a 30–98% cost saving — while keeping every document private and self-hosted.",
+      },
+      {
+        heading: "What's Next",
+        body: "Broadening beyond 10-K/10-Q to other filing types, adding incremental re-runs as new filings drop, and packaging the extraction service behind an API so downstream analytics can query verified financials directly.",
+      },
+    ],
+  },
+  {
+    slug: "multi-agent-codegen",
+    title: "Multi-Agent CodeGen",
+    tagline: "Five AI agents that write, test, and refine production code",
+    description:
+      "A production-scale code-generation platform where five specialized CrewAI agents turn a natural-language request into tested, documented code — grounded by RAG over 2M+ embeddings and validated in an isolated Docker sandbox with iterative refinement.",
+    role: "AI Engineer (team project)",
+    year: "2024",
+    tech: [
+      "CrewAI",
+      "GPT-4",
+      "LangChain",
+      "Pinecone",
+      "FastAPI",
+      "Apache Airflow",
+      "BigQuery",
+      "Docker",
+      "Streamlit",
+    ],
+    cover: {
+      src: "/images/multiagent-codegen.jpg",
+      alt: "Multi-Agent CodeGen — RAG + CrewAI code generation platform",
+      width: 1792,
+      height: 1024,
+    },
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Aadarsh-Ravi31/Multi-Agent-CodeGen-AI-Platform",
+        external: true,
+      },
+    ],
+    featured: true,
+    architectureImage: "/images/multiagent-codegen-architecture.svg",
+    metrics: [
+      { value: "78.2%", label: "Pass@1 accuracy" },
+      { value: "5", label: "Specialized agents" },
+      { value: "2M+", label: "Vector embeddings" },
+      { value: "89.7%", label: "Success rate" },
+    ],
+    body: [
+      {
+        heading: "The Problem",
+        body: "A single LLM asked to \"write this code\" will confidently produce something that looks right and often isn't — no tests, no grounding in real-world patterns, no way to know if it actually runs. The goal was to treat code generation like an engineering team instead of one overloaded prompt: specialized roles, real retrieval, and a hard gate where the code has to pass tests before it ships.",
+      },
+      {
+        heading: "What I Built",
+        body: "An end-to-end platform from data ingestion to a coordinated agent team:",
+        points: [
+          "An Airflow-orchestrated ETL that collects code and docs from 6 sources — GitHub repos, Stack Overflow, official docs, issues/PRs, code examples, and technical blogs — with AST-based parsing, cleaning, and deduplication over 10K–50K snippets",
+          "An embedding pipeline (OpenAI text-embedding-3-large, 3072-dim) populating a Pinecone vector store with 2M+ embeddings, served by a FastAPI RAG backend",
+          "A 5-agent CrewAI system: Requirements Analyzer → Test Designer + Programmer (in parallel) → Test Executor → Documentation Generator",
+          "A design-first flow where the Test Designer writes the spec before the Programmer generates code, and failing tests trigger an iterative refinement loop",
+          "Quality guardrails — static analysis, security scanning, human-in-the-loop review, and isolated Docker sandbox execution — behind a Streamlit dashboard",
+        ],
+      },
+      {
+        heading: "Key Decisions",
+        body: "The interesting trade-offs — and why I made them:",
+        points: [
+          "Split generation across specialized agents (CrewAI) instead of one prompt, so each role has a focused context and the work is auditable step by step",
+          "Made it design-first: the Test Designer defines success before the Programmer writes a line, so the code is written to pass a real spec rather than tests being rationalized afterward",
+          "Grounded generation in RAG over 2M+ embeddings so agents draw on real-world patterns instead of hallucinating APIs",
+          "Executed every candidate in an isolated Docker sandbox — untrusted generated code never touches the host, and a failed run feeds the refinement loop automatically",
+          "Optimized cost with a 40% cache hit rate and cheaper models for simple tasks, holding average cost to $0.16 per request",
+        ],
+      },
+      {
+        heading: "Challenges",
+        body: "The hard parts:",
+        points: [
+          "Agent coordination: getting five agents to hand off cleanly — structured spec → tests + code → execution → docs — without context drift took careful interface design between roles",
+          "Safe execution at scale: running arbitrary generated code required a locked-down Docker sandbox and a refinement loop that turns test failures into the next attempt's input",
+          "Cost and latency: 2M+ embeddings and multi-agent calls add up fast, so caching, batching, and model tiering were essential to keep it to ~23s and $0.16 per request",
+        ],
+      },
+      {
+        heading: "Results",
+        body: "The platform reaches 78.2% Pass@1 accuracy across 87 test cases with an 89.7% overall success rate, averaging a 7.8/10 quality score, ~23s latency, and $0.16 per request. Because every generation is grounded in retrieval and gated by sandboxed tests, the output is code you can actually trust to run — not just code that looks plausible.",
+      },
+      {
+        heading: "What's Next",
+        body: "Multi-language support beyond Python (Java, JavaScript, Go), incremental re-embedding as sources update, richer human-in-the-loop workflows, and IDE integration so the pipeline runs where developers already work.",
+      },
+    ],
+  },
+  {
     slug: "reflexai",
     title: "ReflexAI",
     tagline: "AI stock & macro-risk analysis grounded in Soros's reflexivity",
